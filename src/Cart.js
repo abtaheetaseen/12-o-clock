@@ -6,7 +6,7 @@ import { useCartContext } from "./context/cartContext";
 const Cart = () => {
   const { cart, clearCart, total_price, shipping_fee } = useCartContext();
 
-  if (cart.length === 0) {
+  if (cart?.length === 0) {
     return (
       <div className="cart-empty">
           <p>You have no stuffs in your cart</p>
@@ -36,7 +36,7 @@ const Cart = () => {
         <hr />
 
         <div className="cart-item">
-          {cart.map((curElem) => {
+          {cart?.map((curElem) => {
             return <CartItem key={curElem.id} {...curElem} />;
           })}
         </div>
